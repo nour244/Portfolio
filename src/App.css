@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: #0A192F;
+  --primary-accent: #64FFDA;
+  --text-primary: #CCD6F6;
+  --text-secondary: #8892B0;
+  --card-bg: #112240;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-code: 'Fira Code', 'Roboto Mono', monospace;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+}
+
+.App {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Code text styling */
+.code-text {
+  font-family: var(--font-code);
+  color: var(--primary-accent);
+}
