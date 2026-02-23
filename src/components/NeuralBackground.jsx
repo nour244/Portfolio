@@ -24,9 +24,9 @@ const NeuralBackground = () => {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
+        this.radius = Math.random() * 1.5 + 0.5;
       }
 
       update() {
@@ -36,26 +36,24 @@ const NeuralBackground = () => {
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-        // Mouse interaction
         const dx = mouseX - this.x;
         const dy = mouseY - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
-          this.x -= dx / distance * 0.5;
-          this.y -= dy / distance * 0.5;
+        if (distance < 120) {
+          this.x -= dx / distance * 0.3;
+          this.y -= dy / distance * 0.3;
         }
       }
 
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#64FFDA';
+        ctx.fillStyle = 'rgba(100, 255, 218, 0.6)';
         ctx.fill();
       }
     }
 
-    // Create particles
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 60; i++) {
       particles.push(new Particle());
     }
 
@@ -66,9 +64,9 @@ const NeuralBackground = () => {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 150) {
+          if (distance < 180) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(100, 255, 218, ${0.15 - distance / 1000})`;
+            ctx.strokeStyle = `rgba(100, 255, 218, ${0.12 - distance / 1500})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -80,14 +78,11 @@ const NeuralBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       particles.forEach((particle) => {
         particle.update();
         particle.draw();
       });
-
       drawLines();
-
       animationFrameId = requestAnimationFrame(animate);
     };
 

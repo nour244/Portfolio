@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
 
 * {
   margin: 0;
@@ -8,12 +8,18 @@
 
 :root {
   --primary-bg: #0A192F;
+  --secondary-bg: #0d1f3c;
   --primary-accent: #64FFDA;
   --text-primary: #CCD6F6;
   --text-secondary: #8892B0;
   --card-bg: #112240;
+  --card-hover: #1a3158;
   --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-code: 'Fira Code', 'Roboto Mono', monospace;
+  --border-subtle: rgba(100, 255, 218, 0.08);
+  --border-hover: rgba(100, 255, 218, 0.25);
+  --glow: rgba(100, 255, 218, 0.15);
+  --max-width: 1200px;
 }
 
 body {
@@ -38,34 +44,34 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Code text styling */
 .code-text {
   font-family: var(--font-code);
   color: var(--primary-accent);
 }
 
-/* Highlight text */
 .highlight {
   color: var(--primary-accent);
 }
 
-/* Global container */
 .container {
-  max-width: 1100px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Section header styling */
+/* Section header */
 .section-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 .section-number {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 500;
+  font-family: var(--font-code);
+  color: var(--primary-accent);
 }
 
 .section-title {
@@ -73,17 +79,28 @@ html {
   font-weight: 700;
   color: var(--text-primary);
   white-space: nowrap;
+  letter-spacing: -0.02em;
 }
 
 .section-line {
   flex: 1;
   height: 1px;
-  background: rgba(100, 255, 218, 0.2);
+  background: linear-gradient(90deg, rgba(100, 255, 218, 0.2), transparent);
   margin-left: 1rem;
 }
 
-/* Selection styling */
 ::selection {
   background: rgba(100, 255, 218, 0.2);
   color: var(--primary-accent);
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }

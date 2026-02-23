@@ -1,259 +1,287 @@
 .projects {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
   position: relative;
   z-index: 1;
 }
 
-.projects-category-title {
-  font-size: 1.5rem;
-  color: var(--primary-accent);
-  margin-bottom: 1.5rem;
-  margin-top: 3rem;
-  font-family: var(--font-code);
-  font-weight: 600;
-}
-
-.projects-category-title:first-of-type {
-  margin-top: 0;
-}
-
-.projects-list {
-  display: flex;
-  flex-direction: column;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
 .project-card {
   background: var(--card-bg);
-  border-radius: 8px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
-  transition: all 0.4s ease;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.project-cover {
+  height: 160px;
   position: relative;
   overflow: hidden;
 }
 
-.project-card::before {
-  content: '';
+.project-cover-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--primary-accent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.project-card:hover::before,
-.project-card.expanded::before {
-  opacity: 1;
-}
-
-.project-card:hover {
-  border-color: rgba(100, 255, 218, 0.3);
-  box-shadow: 0 10px 40px rgba(100, 255, 218, 0.08);
-}
-
-.project-card.expanded {
-  border-color: rgba(100, 255, 218, 0.3);
-}
-
-.project-card-header {
+  inset: 0;
+  background: rgba(10, 25, 47, 0.3);
   display: flex;
   align-items: flex-start;
-  gap: 1.25rem;
-  padding: 1.75rem 2rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  justify-content: flex-end;
+  padding: 1rem;
 }
 
-.project-card-header:hover {
-  background: rgba(100, 255, 218, 0.02);
+.project-year {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
 }
 
-.project-icon {
-  font-size: 2.5rem;
-  flex-shrink: 0;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(100, 255, 218, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
-}
-
-.project-header-info {
-  flex: 1;
+.project-info {
+  padding: 1.25rem;
 }
 
 .project-type {
+  font-family: var(--font-code);
+  font-size: 0.7rem;
   color: var(--primary-accent);
-  font-size: 0.8rem;
-  margin-bottom: 0.25rem;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .project-title {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin: 0.35rem 0 0.2rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-.project-company {
+.project-subtitle {
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  margin-bottom: 0.85rem;
 }
 
-.expand-btn {
-  background: none;
-  border: none;
+.project-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tech-pill {
+  font-family: var(--font-code);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  background: rgba(100, 255, 218, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
+.tech-more {
   color: var(--primary-accent);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(10, 25, 47, 0.6);
+  border: none;
+  color: white;
   cursor: pointer;
-  padding: 0.5rem;
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-  margin-top: 0.5rem;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
 }
 
-.expand-btn.rotated {
-  transform: rotate(180deg);
+.modal-close:hover {
+  background: rgba(100, 255, 218, 0.2);
+  color: var(--primary-accent);
 }
 
-.project-content {
-  padding: 0 2rem 1.5rem;
+.modal-header {
+  padding: 2.5rem 2rem;
+  position: relative;
 }
 
-.project-description {
+.modal-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.45);
+}
+
+.modal-header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.modal-type {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  color: white;
+  font-weight: 700;
+  margin: 0.5rem 0 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-description {
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: 1.25rem;
   font-size: 0.95rem;
+  margin-bottom: 1.5rem;
 }
 
-.project-technologies {
+.modal-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.tech-tag {
+.modal-tech {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
   color: var(--primary-accent);
-  font-size: 0.75rem;
-  padding: 0.35rem 0.85rem;
   background: rgba(100, 255, 218, 0.08);
   border: 1px solid rgba(100, 255, 218, 0.15);
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
 }
 
-.tech-tag:hover {
-  background: rgba(100, 255, 218, 0.15);
-  border-color: var(--primary-accent);
-}
-
-/* Expanded Details */
-.project-details {
-  padding: 0 2rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  border-top: 1px solid rgba(100, 255, 218, 0.08);
-  margin-top: 0.5rem;
-  padding-top: 1.5rem;
-  animation: slideDown 0.4s ease;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.detail-section {
-  background: rgba(10, 25, 47, 0.5);
-  padding: 1.25rem;
-  border-radius: 8px;
-  border: 1px solid rgba(100, 255, 218, 0.05);
-}
-
-.detail-header {
+.modal-sections {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.detail-icon {
-  font-size: 1.1rem;
-}
-
-.detail-header h4 {
+.modal-section h4 {
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  margin-bottom: 0.75rem;
 }
 
-.detail-list {
+.modal-section ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.detail-list li {
+.modal-section ul li {
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   line-height: 1.6;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
   position: relative;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
-.detail-list li::before {
+.modal-section ul li::before {
   content: '▹';
   color: var(--primary-accent);
   position: absolute;
   left: 0;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
-.detail-list li:last-child {
-  margin-bottom: 0;
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .projects {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
   }
 
-  .project-card-header {
-    padding: 1.25rem;
-    gap: 1rem;
-  }
-
-  .project-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1.75rem;
-  }
-
-  .project-content {
-    padding: 0 1.25rem 1.25rem;
-  }
-
-  .project-details {
+  .projects-grid {
     grid-template-columns: 1fr;
-    padding: 0 1.25rem 1.25rem;
+    gap: 1.25rem;
   }
 
-  .project-title {
-    font-size: 1.15rem;
+  .project-cover {
+    height: 140px;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+  }
+
+  .modal-header {
+    padding: 2rem 1.5rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.35rem;
   }
 }

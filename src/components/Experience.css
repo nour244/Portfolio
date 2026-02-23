@@ -1,5 +1,5 @@
 .experience {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
   position: relative;
   z-index: 1;
 }
@@ -15,16 +15,18 @@
 }
 
 .subsection-title {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  color: var(--primary-accent);
+  margin-bottom: 1.5rem;
   font-weight: 600;
+  font-family: var(--font-code);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Timeline Styles */
 .timeline {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.75rem;
 }
 
 .timeline::before {
@@ -33,66 +35,69 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: rgba(100, 255, 218, 0.2);
+  width: 1px;
+  background: rgba(100, 255, 218, 0.15);
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .timeline-marker {
   position: absolute;
-  left: -2.4rem;
+  left: -2.1rem;
   top: 0.5rem;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--primary-accent);
   border: 2px solid var(--primary-bg);
-  box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2);
+  box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.15);
 }
 
 .timeline-content {
   background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
 }
 
 .timeline-content:hover {
-  border-color: var(--primary-accent);
-  transform: translateX(5px);
+  border-color: var(--border-hover);
 }
 
 .exp-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
 }
 
 .exp-company {
   color: var(--primary-accent);
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-code);
 }
 
 .exp-period {
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-code);
 }
 
 .exp-description {
   color: var(--text-secondary);
   line-height: 1.6;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
 }
 
 .exp-description li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
   position: relative;
 }
 
@@ -100,161 +105,169 @@
   color: var(--primary-accent);
 }
 
-/* Education Card */
 .education-card {
   background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 4px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .education-card:hover {
-  border-color: var(--primary-accent);
-  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+  border-color: var(--border-hover);
 }
 
 .edu-degree {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 
 .edu-university {
   color: var(--primary-accent);
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-code);
 }
 
 .edu-period {
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-code);
 }
 
 .edu-grade {
   color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .edu-recommendation {
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-style: italic;
 }
 
-/* Volunteering */
-.volunteering-list {
+.certifications-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.75rem;
 }
 
-.volunteer-item {
+.cert-item {
   background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
 }
 
-.volunteer-item:hover {
-  border-color: var(--primary-accent);
+.cert-item:hover {
+  border-color: var(--border-hover);
 }
 
-.vol-role {
-  font-size: 1.125rem;
+.cert-title {
+  font-size: 0.875rem;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
+  font-weight: 500;
 }
 
-.vol-org {
+.cert-org {
   color: var(--primary-accent);
-  font-size: 0.875rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  font-family: var(--font-code);
+  margin-bottom: 0.15rem;
 }
 
-.vol-period {
+.cert-period {
   color: var(--text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.72rem;
+  font-family: var(--font-code);
 }
 
-.vol-description {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Certifications */
-.certifications-list {
+.volunteering-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.cert-item {
+.volunteer-item {
   background: var(--card-bg);
   padding: 1.25rem;
-  border-radius: 4px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
 }
 
-.cert-item:hover {
-  border-color: var(--primary-accent);
+.volunteer-item:hover {
+  border-color: var(--border-hover);
 }
 
-.cert-title {
-  font-size: 1rem;
+.vol-role {
+  font-size: 0.95rem;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
 }
 
-.cert-org {
+.vol-org {
   color: var(--primary-accent);
   font-size: 0.8rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
+  font-family: var(--font-code);
 }
 
-.cert-period {
+.vol-period {
   color: var(--text-secondary);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-code);
 }
 
-/* Languages */
+.vol-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.85rem;
+}
+
 .languages-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .language-item {
   background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
 }
 
 .language-item:hover {
-  border-color: var(--primary-accent);
+  border-color: var(--border-hover);
 }
 
 .lang-name {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 
 .lang-level {
   color: var(--primary-accent);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  font-family: var(--font-code);
 }
 
 @media (max-width: 768px) {
   .experience {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
   }
 
   .experience-grid {
@@ -266,6 +279,6 @@
   }
 
   .timeline-marker {
-    left: -1.9rem;
+    left: -1.85rem;
   }
 }

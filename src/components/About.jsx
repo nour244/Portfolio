@@ -19,7 +19,7 @@ const About = () => {
               and design patterns to state management and API integration.
             </p>
             <p>
-              My experience spans over a year in <span className="highlight">Flutter development</span>,
+              My experience spans over 3 years in <span className="highlight">Flutter development</span>,
               complemented by a strong background in web development using <span className="highlight">Laravel</span>.
               I thrive in collaborative environments and am passionate about delivering innovative tech solutions
               that solve real-world problems.
@@ -37,7 +37,6 @@ const About = () => {
 
           <div className="about-image">
             <div className="image-wrapper">
-              <div className="image-overlay"></div>
               <img src="/profile.jpeg" alt="Nour Esam Ghazi" className="profile-photo" />
             </div>
           </div>

@@ -2,276 +2,259 @@ import React, { useState } from 'react';
 import './Projects.css';
 
 const Projects = () => {
-  const [expandedProject, setExpandedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const professionalProjects = [
+  const projects = [
     {
       id: 1,
-      title: 'Financial Remittance Systems',
-      type: 'Professional – Web Development',
-      company: 'Al-Fouad & Mada Remittance Companies',
-      period: '2025',
-      description: 'Developed secure and efficient web platforms for financial transactions, focusing on data integrity, user-friendly interfaces, and enterprise-grade admin dashboards.',
+      title: 'Financial Remittance Platform',
+      subtitle: 'Al-Fouad & Mada Companies',
+      type: 'Web Platform',
+      year: '2025',
+      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      description: 'Secure web platforms for financial transactions with enterprise admin dashboards, real-time exchange rate management, and role-based access control.',
       technologies: ['PHP Laravel', 'Blade', 'MySQL', 'JavaScript'],
-      icon: '💰',
       challenges: [
         'Handling sensitive financial data with strict security requirements',
         'Building real-time exchange rate management with instant updates',
         'Implementing role-based access control across multiple admin levels',
       ],
       achievements: [
-        'Successfully deployed production-ready remittance platform',
+        'Deployed production-ready remittance platform serving real users',
         'Built comprehensive admin dashboard with real-time data management',
-        'Implemented secure authentication and authorization system',
-        'Reduced manual operations by automating exchange rate workflows',
+        'Automated exchange rate workflows reducing manual operations',
       ],
       learnings: [
-        'Deep understanding of fintech security standards and best practices',
+        'Fintech security standards and best practices',
         'Advanced Laravel architecture patterns for enterprise applications',
-        'PMP methodology application in real-world software project coordination',
+        'PMP methodology in software project coordination',
       ],
     },
     {
       id: 2,
-      title: 'Wiki Exporter & Car Maintenance',
-      type: 'Professional – Mobile Development',
-      company: 'American Company (Remote)',
-      period: '2023 - 2025',
-      description: 'Wiki Exporter: Exploring Syrian products with rich UI and API integration. Car Maintenance: Workshop assistance request system with real-time communication.',
+      title: 'Wiki Exporter',
+      subtitle: 'American Company',
+      type: 'Mobile App',
+      year: '2023-2025',
+      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      description: 'Mobile application for exploring Syrian products with rich UI development and seamless API integration, built with clean architecture principles.',
       technologies: ['Flutter', 'Dart', 'REST APIs', 'Bloc'],
-      icon: '📱',
       challenges: [
         'Complex state management across multiple app modules',
         'Integrating third-party APIs with varying response structures',
         'Optimizing app performance for low-bandwidth environments',
       ],
       achievements: [
-        'Delivered two production mobile applications from concept to deployment',
-        'Implemented clean architecture with Bloc pattern for maintainable codebase',
-        'Achieved smooth UI/UX with optimized rendering and lazy loading',
+        'Delivered production mobile application from concept to deployment',
+        'Implemented clean architecture with Bloc pattern',
+        'Achieved smooth UI/UX with optimized rendering',
       ],
       learnings: [
-        'Mastered Flutter state management patterns (Bloc, Cubit)',
-        'Remote team collaboration and agile development workflows',
-        'API integration best practices and error handling strategies',
+        'Mastered Flutter state management patterns',
+        'Remote team collaboration and agile workflows',
+        'API integration best practices',
       ],
     },
-  ];
-
-  const academicProjects = [
     {
       id: 3,
-      title: 'Mdshw – Medicine Delivery App',
-      type: 'Graduation Project (2022)',
-      description: 'Mobile application for ordering medicine from nearby pharmacies during COVID-19, featuring integrated delivery service and real-time order tracking.',
-      technologies: ['Flutter', 'Spring Boot', 'MongoDB'],
-      icon: '💊',
+      title: 'Car Maintenance System',
+      subtitle: 'American Company',
+      type: 'Mobile App',
+      year: '2023-2025',
+      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+      description: 'Workshop assistance request system with real-time communication, service tracking, and user-friendly interface for both customers and service providers.',
+      technologies: ['Flutter', 'Dart', 'REST APIs', 'Provider'],
       challenges: [
-        'Building real-time delivery tracking with location services',
-        'Integrating pharmacy inventory management with order system',
-        'Ensuring reliability during high-demand COVID-19 period',
+        'Real-time service request and tracking system',
+        'Multi-role interface for customers and workshops',
+        'Location-based service matching',
       ],
       achievements: [
-        'Successfully defended as graduation project with high marks',
-        'Implemented complete order lifecycle: browse, order, track, deliver',
-        'Built scalable backend architecture handling concurrent requests',
+        'Built complete service request lifecycle management',
+        'Implemented real-time status updates and notifications',
+        'Designed intuitive UI for non-technical users',
       ],
       learnings: [
-        'Full-stack mobile development from design to deployment',
-        'NoSQL database design patterns with MongoDB',
-        'Real-time data synchronization techniques',
+        'Service-oriented architecture in mobile apps',
+        'Real-time communication patterns',
+        'User experience design for diverse audiences',
       ],
     },
     {
       id: 4,
-      title: 'Captain – Restaurant Management System',
-      type: 'Academic Project (2022)',
-      description: 'Comprehensive restaurant operations platform: multi-role ordering, table booking, financial tracking, employee and customer management with AI recommendations.',
-      technologies: ['Flutter', 'Node.js', 'MongoDB', 'Angular', 'AI'],
-      icon: '🍽️',
+      title: 'Mdshw',
+      subtitle: 'Graduation Project',
+      type: 'Medicine Delivery',
+      year: '2022',
+      gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+      description: 'Mobile application for ordering medicine from nearby pharmacies during COVID-19, featuring integrated delivery service and real-time order tracking.',
+      technologies: ['Flutter', 'Spring Boot', 'MongoDB'],
       challenges: [
-        'Designing multi-role access system (admin, waiter, chef, customer)',
-        'Real-time order synchronization between kitchen and floor staff',
-        'Integrating AI for menu recommendations based on user preferences',
+        'Building real-time delivery tracking with location services',
+        'Integrating pharmacy inventory with order system',
+        'Ensuring reliability during high-demand COVID-19 period',
       ],
       achievements: [
-        'Built complete multi-platform solution (mobile + web admin)',
-        'Implemented real-time order tracking with WebSocket connections',
-        'Integrated AI-powered recommendation engine for personalized menus',
+        'Defended as graduation project with high marks',
+        'Implemented complete order lifecycle system',
+        'Built scalable backend handling concurrent requests',
       ],
       learnings: [
-        'Complex multi-role architecture design and implementation',
-        'Full-stack development with multiple technology stacks',
-        'AI integration in practical business applications',
+        'Full-stack mobile development end-to-end',
+        'NoSQL database design with MongoDB',
+        'Real-time data synchronization',
       ],
     },
     {
       id: 5,
-      title: 'UFC Sports Website',
-      type: 'Academic Project (2019)',
-      description: 'Responsive sports news and analysis website built with modern front-end technologies, featuring dynamic content layout and mobile-first design.',
-      technologies: ['HTML5', 'CSS3', 'Bootstrap'],
-      icon: '🥊',
+      title: 'Captain',
+      subtitle: 'Academic Project',
+      type: 'Restaurant System',
+      year: '2022',
+      gradient: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+      description: 'Restaurant management platform with multi-role ordering, table booking, financial tracking, and AI-powered menu recommendations.',
+      technologies: ['Flutter', 'Node.js', 'MongoDB', 'Angular', 'AI'],
       challenges: [
-        'Creating responsive layouts for diverse screen sizes',
-        'Implementing dynamic content grids with CSS Grid and Flexbox',
+        'Multi-role access system (admin, waiter, chef, customer)',
+        'Real-time order sync between kitchen and floor staff',
+        'AI integration for menu recommendations',
       ],
       achievements: [
-        'Built fully responsive website with mobile-first approach',
-        'Implemented modern CSS techniques for engaging visual design',
+        'Built multi-platform solution (mobile + web admin)',
+        'Real-time order tracking with WebSocket connections',
+        'AI-powered recommendation engine',
       ],
       learnings: [
-        'Responsive web design principles and best practices',
-        'CSS Grid and Flexbox layout mastery',
-        'Bootstrap framework for rapid UI development',
+        'Complex multi-role architecture design',
+        'Full-stack development with multiple stacks',
+        'AI integration in business applications',
       ],
     },
     {
       id: 6,
-      title: 'Blade Masters – Java Game',
-      type: 'Academic Project (2019)',
-      description: 'Strategic battle game implementing OOP principles and design patterns with MVC architecture, multithreading for smooth gameplay, and AI opponents.',
-      technologies: ['Java', 'MVC', 'Multithreading', 'Design Patterns'],
-      icon: '⚔️',
-      challenges: [
-        'Implementing smooth real-time gameplay with multithreading',
-        'Designing extensible game architecture using design patterns',
-        'Balancing AI difficulty for engaging player experience',
-      ],
-      achievements: [
-        'Successfully implemented Strategy and Observer design patterns',
-        'Built thread-safe game engine with concurrent operations',
-        'Created intelligent AI opponents with varying difficulty levels',
-      ],
-      learnings: [
-        'Advanced OOP concepts and SOLID principles',
-        'Design patterns application in real-world scenarios',
-        'Java multithreading and concurrent programming',
-      ],
-    },
-    {
-      id: 7,
-      title: 'Checkers Game – Android',
-      type: 'Academic Project (2020)',
-      description: 'AI-based mobile checkers game with intelligent decision-making using Minimax algorithm, featuring multiple difficulty levels and polished UI.',
+      title: 'Checkers Game',
+      subtitle: 'Academic Project',
+      type: 'Android Game',
+      year: '2020',
+      gradient: 'linear-gradient(135deg, #c3cfe2 0%, #f5f7fa 100%)',
+      description: 'AI-based mobile checkers game with Minimax algorithm for intelligent decision-making, featuring multiple difficulty levels and polished game UI.',
       technologies: ['Java', 'OOP', 'Minimax Algorithm', 'Android SDK'],
-      icon: '♟️',
       challenges: [
-        'Optimizing Minimax algorithm for mobile performance constraints',
-        'Implementing alpha-beta pruning for efficient game tree search',
-        'Creating intuitive touch-based game interactions',
+        'Optimizing Minimax for mobile performance',
+        'Implementing alpha-beta pruning',
+        'Creating intuitive touch-based interactions',
       ],
       achievements: [
-        'Built competitive AI with configurable difficulty levels',
-        'Optimized algorithm performance for smooth mobile gameplay',
-        'Designed clean, intuitive UI for touch-based board interaction',
+        'Built competitive AI with configurable difficulty',
+        'Optimized algorithm for smooth gameplay',
+        'Designed clean touch-based board interface',
       ],
       learnings: [
-        'AI algorithms and game theory fundamentals',
-        'Algorithm optimization for resource-constrained environments',
-        'Android development with custom game views',
+        'AI algorithms and game theory',
+        'Algorithm optimization for mobile',
+        'Android development with custom views',
       ],
     },
   ];
-
-  const toggleProject = (id) => {
-    setExpandedProject(expandedProject === id ? null : id);
-  };
-
-  const ProjectCard = ({ project }) => {
-    const isExpanded = expandedProject === project.id;
-
-    return (
-      <div className={`project-card ${isExpanded ? 'expanded' : ''}`}>
-        <div className="project-card-header" onClick={() => toggleProject(project.id)}>
-          <div className="project-icon">{project.icon}</div>
-          <div className="project-header-info">
-            <p className="project-type code-text">{project.type}</p>
-            <h3 className="project-title">{project.title}</h3>
-            {project.company && <p className="project-company">{project.company}</p>}
-          </div>
-          <button className={`expand-btn ${isExpanded ? 'rotated' : ''}`} aria-label="Toggle details">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <div className="project-content">
-          <p className="project-description">{project.description}</p>
-          <div className="project-technologies">
-            {project.technologies.map((tech, index) => (
-              <span key={index} className="tech-tag code-text">{tech}</span>
-            ))}
-          </div>
-        </div>
-
-        {isExpanded && (
-          <div className="project-details">
-            <div className="detail-section">
-              <div className="detail-header">
-                <span className="detail-icon">⚡</span>
-                <h4>Challenges</h4>
-              </div>
-              <ul className="detail-list">
-                {project.challenges.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="detail-section">
-              <div className="detail-header">
-                <span className="detail-icon">🏆</span>
-                <h4>Achievements</h4>
-              </div>
-              <ul className="detail-list">
-                {project.achievements.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="detail-section">
-              <div className="detail-header">
-                <span className="detail-icon">📚</span>
-                <h4>What I Learned</h4>
-              </div>
-              <ul className="detail-list">
-                {project.learnings.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  };
 
   return (
     <section id="projects" className="projects">
       <div className="container">
         <div className="section-header">
           <h2 className="section-number code-text">03.</h2>
-          <h2 className="section-title">Projects</h2>
+          <h2 className="section-title">Featured Projects</h2>
           <div className="section-line"></div>
         </div>
 
-        <h3 className="projects-category-title">Professional Projects</h3>
-        <div className="projects-list">
-          {professionalProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-
-        <h3 className="projects-category-title">Graduation & Academic Projects</h3>
-        <div className="projects-list">
-          {academicProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="project-card"
+              onClick={() => setSelectedProject(project)}
+            >
+              <div className="project-cover" style={{ background: project.gradient }}>
+                <div className="project-cover-overlay">
+                  <span className="project-year">{project.year}</span>
+                </div>
+              </div>
+              <div className="project-info">
+                <span className="project-type">{project.type}</span>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-subtitle">{project.subtitle}</p>
+                <div className="project-tech-row">
+                  {project.technologies.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="tech-pill">{tech}</span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="tech-pill tech-more">+{project.technologies.length - 3}</span>
+                  )}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelectedProject(null)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <div className="modal-header" style={{ background: selectedProject.gradient }}>
+              <div className="modal-header-content">
+                <span className="modal-type">{selectedProject.type}</span>
+                <h2 className="modal-title">{selectedProject.title}</h2>
+                <p className="modal-subtitle">{selectedProject.subtitle} &middot; {selectedProject.year}</p>
+              </div>
+            </div>
+
+            <div className="modal-body">
+              <p className="modal-description">{selectedProject.description}</p>
+
+              <div className="modal-technologies">
+                {selectedProject.technologies.map((tech, i) => (
+                  <span key={i} className="modal-tech">{tech}</span>
+                ))}
+              </div>
+
+              <div className="modal-sections">
+                <div className="modal-section">
+                  <h4>Challenges</h4>
+                  <ul>
+                    {selectedProject.challenges.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="modal-section">
+                  <h4>Achievements</h4>
+                  <ul>
+                    {selectedProject.achievements.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="modal-section">
+                  <h4>What I Learned</h4>
+                  <ul>
+                    {selectedProject.learnings.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

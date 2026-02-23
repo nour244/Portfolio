@@ -4,20 +4,20 @@ import './Skills.css';
 const Skills = () => {
   const skillCategories = [
     {
-      category: 'Programming Languages & Frameworks',
-      skills: ['Flutter', 'Dart', 'CSS3', 'HTML5', 'PHP'],
+      category: 'Languages & Frameworks',
+      skills: ['Flutter', 'Dart', 'PHP Laravel', 'HTML5', 'CSS3', 'JavaScript'],
     },
     {
-      category: 'State Management & Networking',
+      category: 'State Management',
       skills: ['Bloc & Cubit', 'GetX', 'Provider'],
     },
     {
-      category: 'Tools & Technologies',
-      skills: ['Android Studio', 'VS Code', 'IntelliJ IDEA', 'Postman', 'Git'],
+      category: 'Tools & Platforms',
+      skills: ['Android Studio', 'VS Code', 'IntelliJ IDEA', 'Postman', 'Git', 'Figma'],
     },
     {
       category: 'Databases',
-      skills: ['SQL', 'MySQL', 'Firebase', 'SQLite'],
+      skills: ['MySQL', 'Firebase', 'MongoDB', 'SQLite', 'SQL Server'],
     },
   ];
 
@@ -26,7 +26,7 @@ const Skills = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-number code-text">02.</h2>
-          <h2 className="section-title">Technical Arsenal</h2>
+          <h2 className="section-title">Technical Skills</h2>
           <div className="section-line"></div>
         </div>
 
@@ -36,7 +36,7 @@ const Skills = () => {
               <h3 className="category-title">{category.category}</h3>
               <div className="skill-list">
                 {category.skills.map((skill, skillIndex) => (
-                  <span key={skillIndex} className="skill-item code-text">{skill}</span>
+                  <span key={skillIndex} className="skill-item">{skill}</span>
                 ))}
               </div>
             </div>

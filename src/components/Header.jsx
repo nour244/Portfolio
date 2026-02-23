@@ -1,25 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
   };
 
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
-    <header className="header">
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <nav className="nav">
-        <div className="nav-brand">
-          <span className="code-text">{'<'}Nour{'/>'}</span>
-        </div>
-        <ul className="nav-links">
-          <li><button onClick={() => scrollToSection('home')}><span className="code-text number">01.</span> Home</button></li>
-          <li><button onClick={() => scrollToSection('about')}><span className="code-text number">02.</span> About</button></li>
-          <li><button onClick={() => scrollToSection('skills')}><span className="code-text number">03.</span> Skills</button></li>
-          <li><button onClick={() => scrollToSection('projects')}><span className="code-text number">04.</span> Projects</button></li>
-          <li><button onClick={() => scrollToSection('experience')}><span className="code-text number">05.</span> Experience</button></li>
-          <li><button onClick={() => scrollToSection('contact')}><span className="code-text number">06.</span> Contact</button></li>
+        <button className="nav-brand" onClick={() => scrollToSection('home')}>
+          <span className="brand-text">NG</span>
+        </button>
+
+        <button className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          {navItems.map((item, i) => (
+            <li key={item.id}>
+              <button onClick={() => scrollToSection(item.id)}>
+                <span className="nav-number">{String(i + 1).padStart(2, '0')}.</span>
+                {item.label}
+              </button>
+            </li>
+          ))}
+          <li>
+            <a href="mailto:e.nourghazi99@gmail.com" className="nav-cta">Say Hello</a>
+          </li>
         </ul>
       </nav>
     </header>
