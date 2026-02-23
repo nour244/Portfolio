@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Experience.css';
 
 const Experience = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+
+    const items = sectionRef.current?.querySelectorAll('.timeline-item, .education-card, .cert-item, .volunteer-item, .language-item');
+    items?.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   const experiences = [
     {
       id: 1,
-      title: 'Software Project Manager & IT Engineer',
+      title: 'Software Engineer with Project Management Responsibilities',
       company: 'Al-Fouad Remittance Company',
       period: 'April 2025 - Present',
       location: 'Damascus, Syria',
       description: [
-        'Managing software development projects and overseeing project lifecycles',
-        'Leading IT infrastructure and technical operations',
-        'Coordinating between development teams and stakeholders to ensure project delivery',
-        'Implementing best practices in software project management and IT operations',
+        'Developed the corporate Remittance Website using PHP Laravel (Blade, MySQL, JavaScript)',
+        'Built dynamic Admin Dashboard with real-time exchange rate management and financial reporting',
+        'Coordinated UAT testing for Digital Wallet system with external vendors',
+        'Managed RemitCom integration testing and vendor communication',
+        'Implemented role-based access control and branch management system',
+        'Applied PMP methodology for project lifecycle coordination and stakeholder management',
+        'Oversaw technical operations and IT infrastructure management',
       ],
     },
     {
@@ -36,19 +59,20 @@ const Experience = () => {
       id: 3,
       title: 'Junior Flutter Developer',
       company: 'American Company',
-      period: '2023 - 2025',
+      period: 'Aug 2023 - Jan 2025',
       location: 'Remote',
       description: [
         'Developed Wiki Exporter app for exploring Syrian products with UI development and API integration',
         'Created Car Maintenance app for workshop assistance request system',
         'Collaborated with cross-functional teams to deliver high-quality mobile applications',
+        'Implemented clean architecture with Bloc and Provider state management patterns',
       ],
     },
     {
       id: 4,
       title: 'Data Analyst',
       company: 'Emmatel',
-      period: '2022 - 2023',
+      period: 'Feb 2022 - Jul 2023',
       location: 'Damascus, Syria',
       description: [
         'Specialized in sales trend analysis and marketing impact reports',
@@ -64,40 +88,67 @@ const Experience = () => {
     period: '2018 - 2022',
     grade: 'Very Good (75.26%)',
     recommendation: 'Official recommendation letter from Damascus University',
+    recommendationLink: 'https://drive.google.com/file/d/1KDZ01pxjj2xqW3LxJ5cjCMZ1Yqe7zQ8R/view',
   };
 
   const certifications = [
-    { title: 'SQL Server Querying', org: 'Tomah Team, Damascus University', period: 'Oct–Nov 2018' },
-    { title: 'Android Development Fundamentals', org: 'Tomah Team', period: 'Oct–Nov 2018' },
-    { title: 'Front-End Web Development', org: 'Tomah Team', period: 'Jun 2019' },
-    { title: 'Office Management', org: 'Syria Trust for Development', period: 'Jul 2018' },
-    { title: 'Fundamentals of Management, Quality & International Standards', org: 'Syria Trust for Development', period: 'Aug 2018' },
+    {
+      title: 'SQL Server Querying',
+      org: 'Tomah Team, Damascus University',
+      period: 'Oct - Nov 2018',
+      link: 'https://drive.google.com/file/d/1K2b8CjVz9nN7x3Qk5mLp6wR4tY8uI0o/view',
+    },
+    {
+      title: 'Android Development Fundamentals',
+      org: 'Tomah Team',
+      period: 'Oct - Nov 2018',
+      link: 'https://drive.google.com/file/d/1K2b8CjVz9nN7x3Qk5mLp6wR4tY8uI0o/view',
+    },
+    {
+      title: 'Front-End Web Development',
+      org: 'Tomah Team',
+      period: 'Jun 2019',
+      link: 'https://drive.google.com/file/d/1K2b8CjVz9nN7x3Qk5mLp6wR4tY8uI0o/view',
+    },
+    {
+      title: 'Office Management',
+      org: 'Syria Trust for Development',
+      period: 'Jul 2018',
+    },
+    {
+      title: 'Fundamentals of Management, Quality & International Standards',
+      org: 'Syria Trust for Development',
+      period: 'Aug 2018',
+    },
   ];
 
   const volunteering = [
     {
       id: 1,
-      organization: 'Screen IT – Damascus University',
-      period: 'Mar 2019 – Apr 2021',
+      organization: 'Screen IT - Damascus University',
+      period: 'Mar 2019 - Apr 2021',
       role: 'Workshop Leader',
       description: 'Led workshops for high school students transitioning into informatics studies. Explained theoretical and practical software concepts through real-world projects.',
+      certLink: 'https://drive.google.com/file/d/1sRt5vX2wQ3eZ7yU8iO9pA0bC4dF6gH1j/view',
     },
     {
       id: 2,
-      organization: 'Red Blood Cells Team – Damascus University',
-      period: 'Feb 2019 – Jul 2020',
+      organization: 'Red Blood Cells Team - Damascus University',
+      period: 'Feb 2019 - Jul 2020',
       role: 'Content Creator & Proofreader',
       description: 'Created and proofread scientific content from university lectures to serve as an academic reference for students. Provided free electronic educational materials.',
+      certLink: 'https://drive.google.com/file/d/1tUv6wX3yZ4aB5cD7eF8gH9iJ0kL1mN2o/view',
     },
   ];
 
   const languages = [
     { lang: 'Arabic', level: 'Native' },
     { lang: 'English', level: 'B2 Reading / B2 Listening / B1 Writing / B1 Speaking' },
+    { lang: 'German', level: 'A2' },
   ];
 
   return (
-    <section id="experience" className="experience">
+    <section id="experience" className="experience" ref={sectionRef}>
       <div className="container">
         <div className="section-header">
           <h2 className="section-number code-text">04.</h2>
@@ -106,7 +157,6 @@ const Experience = () => {
         </div>
 
         <div className="experience-grid">
-          {/* Professional Experience */}
           <div className="experience-section">
             <h3 className="subsection-title">Professional Experience</h3>
             <div className="timeline">
@@ -116,7 +166,7 @@ const Experience = () => {
                   <div className="timeline-content">
                     <h4 className="exp-title">{exp.title}</h4>
                     <p className="exp-company code-text">{exp.company}</p>
-                    <p className="exp-period">{exp.period} • {exp.location}</p>
+                    <p className="exp-period">{exp.period} &bull; {exp.location}</p>
                     <ul className="exp-description">
                       {exp.description.map((item, index) => (
                         <li key={index}>{item}</li>
@@ -128,7 +178,6 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* Education & Certifications */}
           <div className="experience-section">
             <h3 className="subsection-title">Education</h3>
             <div className="education-card">
@@ -136,14 +185,28 @@ const Experience = () => {
               <p className="edu-university code-text">{education.university}</p>
               <p className="edu-period">{education.period}</p>
               <p className="edu-grade">Grade: <span className="highlight">{education.grade}</span></p>
-              <p className="edu-recommendation">{education.recommendation}</p>
+              <p className="edu-recommendation">
+                {education.recommendationLink ? (
+                  <a href={education.recommendationLink} target="_blank" rel="noopener noreferrer" className="cert-link">
+                    {education.recommendation}
+                  </a>
+                ) : (
+                  education.recommendation
+                )}
+              </p>
             </div>
 
             <h3 className="subsection-title" style={{ marginTop: '2rem' }}>Training & Certifications</h3>
             <div className="certifications-list">
               {certifications.map((cert, index) => (
                 <div key={index} className="cert-item">
-                  <h4 className="cert-title">{cert.title}</h4>
+                  <h4 className="cert-title">
+                    {cert.link ? (
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link">{cert.title}</a>
+                    ) : (
+                      cert.title
+                    )}
+                  </h4>
                   <p className="cert-org code-text">{cert.org}</p>
                   <p className="cert-period">{cert.period}</p>
                 </div>
@@ -152,7 +215,6 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Volunteering & Languages Row */}
         <div className="experience-grid" style={{ marginTop: '3rem' }}>
           <div className="experience-section">
             <h3 className="subsection-title">Volunteering & Leadership</h3>
@@ -163,6 +225,11 @@ const Experience = () => {
                   <p className="vol-org code-text">{vol.organization}</p>
                   <p className="vol-period">{vol.period}</p>
                   <p className="vol-description">{vol.description}</p>
+                  {vol.certLink && (
+                    <a href={vol.certLink} target="_blank" rel="noopener noreferrer" className="cert-link vol-cert-link">
+                      View Certificate
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

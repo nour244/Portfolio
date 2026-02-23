@@ -71,9 +71,9 @@
 }
 
 .btn-primary:hover {
-  background: rgba(100, 255, 218, 0.15);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15);
+  background: rgba(100, 255, 218, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(100, 255, 218, 0.2), 0 0 0 1px rgba(100, 255, 218, 0.3);
 }
 
 .btn-ghost {
@@ -92,7 +92,15 @@
 .btn-ghost:hover {
   color: var(--primary-accent);
   border-color: var(--primary-accent);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(100, 255, 218, 0.1);
+}
+
+.btn-ghost {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
