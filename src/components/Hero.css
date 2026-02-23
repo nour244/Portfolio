@@ -46,12 +46,17 @@
 }
 
 .hero-description {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 3rem;
-  max-width: 600px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  max-width: 700px;
   color: var(--text-secondary);
   animation: fadeInUp 0.8s ease 0.3s backwards;
+}
+
+.hero-description-secondary {
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 0.8s ease 0.35s backwards;
 }
 
 .hero-buttons {

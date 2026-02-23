@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
+  const formRef = useRef();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    setStatus('');
+
+    try {
+      await emailjs.sendForm(
+        'service_portfolio',
+        'template_portfolio',
+        formRef.current,
+        'YOUR_PUBLIC_KEY'
+      );
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      setStatus('error');
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -11,39 +47,140 @@ const Contact = () => {
           <div className="section-line"></div>
         </div>
 
-        <div className="contact-wrapper">
-          <div className="contact-intro">
-            <h3 className="contact-heading">Let's Connect</h3>
+        <div className="contact-layout">
+          <div className="contact-info-side">
+            <h3 className="contact-heading">Let's Build Something Together</h3>
             <p className="contact-text">
-              I'm currently looking for new opportunities and collaborations.
-              Whether you have a question or just want to say hi, feel free to reach out!
+              I'm currently open to new opportunities and collaborations in software
+              development, project management, and fintech solutions. Whether you have a
+              project idea, a question, or just want to connect — I'd love to hear from you.
             </p>
-          </div>
 
-          <div className="contact-details">
-            <a href="mailto:e.nourghazi99@gmail.com" className="contact-item">
-              <span className="contact-icon">📧</span>
-              <span className="code-text">e.nourghazi99@gmail.com</span>
-            </a>
-            <div className="contact-item">
-              <span className="contact-icon">📍</span>
-              <span className="code-text">Mezzah, Damascus, Syria</span>
+            <div className="contact-details">
+              <a href="mailto:e.nourghazi99@gmail.com" className="contact-item">
+                <div className="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span className="contact-label">Email</span>
+                  <span className="contact-value code-text">e.nourghazi99@gmail.com</span>
+                </div>
+              </a>
+
+              <div className="contact-item">
+                <div className="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <span className="contact-label">Location</span>
+                  <span className="contact-value code-text">Mezzah, Damascus, Syria</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="social-links">
+              <a href="https://www.linkedin.com/in/nour-ghazi-01onal" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/nour244" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>GitHub</span>
+              </a>
             </div>
           </div>
 
-          <div className="social-links">
-            <a href="https://linkedin.com/in/nourghazi" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="https://github.com/nourghazi88" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
+          <div className="contact-form-side">
+            <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="subject" className="form-label">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                  placeholder="What's this about?"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="form-input form-textarea"
+                  placeholder="Your message..."
+                  rows="5"
+                />
+              </div>
+
+              <button type="submit" className="form-submit" disabled={sending}>
+                {sending ? (
+                  <span className="sending-text">Sending...</span>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                  </>
+                )}
+              </button>
+
+              {status === 'success' && (
+                <p className="form-status success">Message sent successfully! I'll get back to you soon.</p>
+              )}
+              {status === 'error' && (
+                <p className="form-status error">Something went wrong. Please email me directly at e.nourghazi99@gmail.com</p>
+              )}
+            </form>
           </div>
         </div>
       </div>

@@ -43,3 +43,47 @@ html {
   font-family: var(--font-code);
   color: var(--primary-accent);
 }
+
+/* Highlight text */
+.highlight {
+  color: var(--primary-accent);
+}
+
+/* Global container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section header styling */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.section-number {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(100, 255, 218, 0.2);
+  margin-left: 1rem;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(100, 255, 218, 0.2);
+  color: var(--primary-accent);
+}

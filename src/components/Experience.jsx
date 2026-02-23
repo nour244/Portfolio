@@ -18,6 +18,22 @@ const Experience = () => {
     },
     {
       id: 2,
+      title: 'Full Stack Developer',
+      company: 'Mada Money Transfer (Freelance)',
+      period: 'April 2025 - September 2025',
+      location: 'Damascus, Syria',
+      description: [
+        'Developed the corporate website dynamically using PHP Laravel and Blade',
+        'Built dynamic Admin Dashboard with real-time exchange rate management',
+        'Implemented branch management system and complaint management system',
+        'Applied role-based access control for secure administration',
+        'Managed backend logic and database structure',
+        'Deployed system to production server',
+        'Applied PMP practices to coordinate requirements and validate workflows',
+      ],
+    },
+    {
+      id: 3,
       title: 'Junior Flutter Developer',
       company: 'American Company',
       period: '2023 - 2025',
@@ -29,7 +45,7 @@ const Experience = () => {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: 'Data Analyst',
       company: 'Emmatel',
       period: '2022 - 2023',
