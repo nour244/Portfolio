@@ -18,9 +18,9 @@ const Hero = () => {
           <button className="btn-primary" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
             View My Work
           </button>
-          <button className="btn-ghost" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            Get In Touch
-          </button>
+          <a href="/Nour_Esam_Ghazi_CV.pdf" download className="btn-ghost">
+            Download CV
+          </a>
         </div>
       </div>
     </section>
