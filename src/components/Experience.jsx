@@ -75,9 +75,11 @@ const Experience = () => {
       period: 'Feb 2022 - Jul 2023',
       location: 'Damascus, Syria',
       description: [
-        'Specialized in sales trend analysis and marketing impact reports',
-        'Provided data-driven insights for business decision making',
-        'Received official letter of recommendation for excellence in data analysis',
+        'Analyzed multi-branch sales data for electronic devices, generating actionable insights',
+        'Sales performance analysis per branch, employee, and device type',
+        'Designed dashboards and reports (monthly & yearly) for management',
+        'Identified performance gaps and recommended improvements',
+        'Supported data-driven decision making across the organization',
       ],
     },
   ];
@@ -88,7 +90,7 @@ const Experience = () => {
     period: '2018 - 2022',
     grade: 'Very Good (75.26%)',
     recommendation: 'Official recommendation letter from Damascus University',
-    recommendationLink: 'https://drive.google.com/file/d/1KDZ01pxjj2xqW3LxJ5cjCMZ1Yqe7zQ8R/view',
+    recommendationLink: 'https://drive.google.com/file/d/1YNel57K5PD0QDHXIBVadGiNVXsafzIGO/view?usp=sharing',
   };
 
   const certifications = [
