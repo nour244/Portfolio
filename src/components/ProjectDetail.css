@@ -130,6 +130,12 @@
   transform: translateY(-2px);
 }
 
+.detail-links-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 .detail-link {
   display: inline-flex;
   align-items: center;

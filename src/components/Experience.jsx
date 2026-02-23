@@ -81,6 +81,7 @@ const Experience = () => {
         'Identified performance gaps and recommended improvements',
         'Supported data-driven decision making across the organization',
       ],
+      recommendationLink: 'https://drive.google.com/file/d/1Njf_NPP_bKzCfhQ9_NMnCcmkaiEGKJ62/view?usp=sharing',
     },
   ];
 
@@ -98,29 +99,31 @@ const Experience = () => {
       title: 'SQL Server Querying',
       org: 'Tomah Team, Damascus University',
       period: 'Oct - Nov 2018',
-      link: 'https://drive.google.com/file/d/1K2b8CjVz9nN7x3Qk5mLp6wR4tY8uI0o/view',
+      link: 'https://drive.google.com/file/d/1Gup4TJ_qLl6loNm94G-eIhEgqLNf9c1_/view?usp=sharing',
     },
     {
       title: 'Android Development Fundamentals',
       org: 'Tomah Team',
       period: 'Oct - Nov 2018',
-      link: 'https://drive.google.com/file/d/1K2b8CjVz9nN7x3Qk5mLp6wR4tY8uI0o/view',
+      link: 'https://drive.google.com/file/d/1DgSftHTqHIeI0hiVpSSzXzRoUpTuK29N/view?usp=sharing',
     },
     {
       title: 'Front-End Web Development',
       org: 'Tomah Team',
       period: 'Jun 2019',
-      link: 'https://drive.google.com/file/d/1K2b8CjVz9nN7x3Qk5mLp6wR4tY8uI0o/view',
+      link: 'https://drive.google.com/file/d/1d3iVTqGDzPldb1c5y9HFBW8jZHM5ZI9_/view?usp=sharing',
     },
     {
       title: 'Office Management',
       org: 'Syria Trust for Development',
       period: 'Jul 2018',
+      link: 'https://drive.google.com/file/d/1n4IGOUwsCpIR3Wr9YRlduRW6BH8YD8A6/view?usp=sharing',
     },
     {
       title: 'Fundamentals of Management, Quality & International Standards',
       org: 'Syria Trust for Development',
       period: 'Aug 2018',
+      link: 'https://drive.google.com/file/d/1x5rdsvMnBrRl4dDVjkGNCHzxnkIkXD4x/view',
     },
   ];
 
@@ -131,7 +134,10 @@ const Experience = () => {
       period: 'Mar 2019 - Apr 2021',
       role: 'Workshop Leader',
       description: 'Led workshops for high school students transitioning into informatics studies. Explained theoretical and practical software concepts through real-world projects.',
-      certLink: 'https://drive.google.com/file/d/1sRt5vX2wQ3eZ7yU8iO9pA0bC4dF6gH1j/view',
+      certLinks: [
+        'https://drive.google.com/file/d/1ZcgA9NJGk50HOhusEC-_mTZrcYKA3Lww/view',
+        'https://drive.google.com/file/d/1Z1cOZOyhc-4SEm9rG2FJVpFXty697kSI/view?usp=sharing',
+      ],
     },
     {
       id: 2,
@@ -139,7 +145,9 @@ const Experience = () => {
       period: 'Feb 2019 - Jul 2020',
       role: 'Content Creator & Proofreader',
       description: 'Created and proofread scientific content from university lectures to serve as an academic reference for students. Provided free electronic educational materials.',
-      certLink: 'https://drive.google.com/file/d/1tUv6wX3yZ4aB5cD7eF8gH9iJ0kL1mN2o/view',
+      certLinks: [
+        'https://drive.google.com/file/d/1eRmHKbC89faKlmc_hGOjfxwzlgJ9Sr7G/view',
+      ],
     },
   ];
 
@@ -174,6 +182,11 @@ const Experience = () => {
                         <li key={index}>{item}</li>
                       ))}
                     </ul>
+                    {exp.recommendationLink && (
+                      <a href={exp.recommendationLink} target="_blank" rel="noopener noreferrer" className="cert-link vol-cert-link">
+                        View Recommendation Letter
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
@@ -227,11 +240,11 @@ const Experience = () => {
                   <p className="vol-org code-text">{vol.organization}</p>
                   <p className="vol-period">{vol.period}</p>
                   <p className="vol-description">{vol.description}</p>
-                  {vol.certLink && (
-                    <a href={vol.certLink} target="_blank" rel="noopener noreferrer" className="cert-link vol-cert-link">
-                      View Certificate
+                  {vol.certLinks && vol.certLinks.map((link, i) => (
+                    <a key={i} href={link} target="_blank" rel="noopener noreferrer" className="cert-link vol-cert-link">
+                      View Certificate {vol.certLinks.length > 1 ? i + 1 : ''}
                     </a>
-                  )}
+                  ))}
                 </div>
               ))}
             </div>

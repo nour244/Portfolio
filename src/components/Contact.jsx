@@ -1,9 +1,7 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
-  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,31 +9,18 @@ const Contact = () => {
     message: '',
   });
   const [status, setStatus] = useState('');
-  const [sending, setSending] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSending(true);
-    setStatus('');
-
-    try {
-      await emailjs.sendForm(
-        'service_portfolio',
-        'template_portfolio',
-        formRef.current,
-        'YOUR_PUBLIC_KEY'
-      );
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch {
-      setStatus('error');
-    } finally {
-      setSending(false);
-    }
+    const body = `Hi Nour,%0D%0A%0D%0AMy name is ${encodeURIComponent(formData.name)} (${encodeURIComponent(formData.email)}).%0D%0A%0D%0A${encodeURIComponent(formData.message)}`;
+    const subject = encodeURIComponent(formData.subject || 'Portfolio Contact');
+    window.open(`mailto:e.nourghazi99@gmail.com?subject=${subject}&body=${body}`, '_self');
+    setStatus('success');
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -114,7 +99,7 @@ const Contact = () => {
           </div>
 
           <div className="contact-form-side">
-            <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">Name</label>
@@ -136,15 +121,12 @@ const Contact = () => {
                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} required className="form-input form-textarea" placeholder="Your message..." rows="5" />
               </div>
 
-              <button type="submit" className="form-submit" disabled={sending}>
-                {sending ? 'Sending...' : 'Send Message'}
+              <button type="submit" className="form-submit">
+                Send Message
               </button>
 
               {status === 'success' && (
-                <p className="form-status success">Message sent! I'll get back to you soon.</p>
-              )}
-              {status === 'error' && (
-                <p className="form-status error">Something went wrong. Please email me directly.</p>
+                <p className="form-status success">Your email client should open. Send the message from there!</p>
               )}
             </form>
           </div>

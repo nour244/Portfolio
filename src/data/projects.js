@@ -146,6 +146,8 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&q=80',
     description: 'Responsive sports news and analysis website built with modern front-end technologies, featuring dynamic content layout and mobile-first design.',
     technologies: ['HTML5', 'CSS3', 'Bootstrap'],
+    github: 'https://drive.google.com/file/d/1BhvV4TiQsWfhK0csBLV-TbDz6_Nhx_2v/view',
+    demo: 'https://drive.google.com/file/d/1w2zFwhIMxMdQbxBVibPgyOTzR3paUUOS/view',
     challenges: [
       'Creating a responsive layout for all device sizes',
       'Implementing dynamic content sections with pure CSS',
@@ -198,6 +200,10 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1611891487122-207579d67d98?w=800&q=80',
     description: 'AI-based mobile checkers game with Minimax algorithm for intelligent decision-making, featuring multiple difficulty levels and polished game UI.',
     technologies: ['Java', 'OOP', 'Minimax Algorithm', 'Android SDK'],
+    demos: [
+      { label: 'Demo Video 1', url: 'https://drive.google.com/file/d/1UbfNYI8EUxtk9zQNPLFE3N_c1MerflZK/view' },
+      { label: 'Demo Video 2', url: 'https://drive.google.com/file/d/1gW5kxdCkQn6r3H4Ltkkf17lDR8ZPqALt/view' },
+    ],
     challenges: [
       'Optimizing Minimax for mobile performance',
       'Implementing alpha-beta pruning',
