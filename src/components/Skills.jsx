@@ -4,24 +4,20 @@ import './Skills.css';
 const Skills = () => {
   const skillCategories = [
     {
-      category: 'Mobile Development',
-      skills: ['Flutter', 'Dart', 'Bloc & Cubit', 'GetX', 'Provider'],
+      category: 'Programming Languages & Frameworks',
+      skills: ['Flutter', 'Dart', 'CSS3', 'HTML5', 'PHP'],
     },
     {
-      category: 'Web Development',
-      skills: ['PHP (Laravel)', 'Blade Engine', 'HTML5', 'CSS3', 'Bootstrap'],
+      category: 'State Management & Networking',
+      skills: ['Bloc & Cubit', 'GetX', 'Provider'],
     },
     {
-      category: 'Languages & Backend',
-      skills: ['Java', 'SQL'],
+      category: 'Tools & Technologies',
+      skills: ['Android Studio', 'VS Code', 'IntelliJ IDEA', 'Postman', 'Git'],
     },
     {
       category: 'Databases',
-      skills: ['MySQL', 'MongoDB', 'Firebase', 'SQLite'],
-    },
-    {
-      category: 'Tools & Others',
-      skills: ['Git', 'Postman', 'Android Studio', 'VS Code', 'Microsoft Office', 'Figma'],
+      skills: ['SQL', 'MySQL', 'Firebase', 'SQLite'],
     },
   ];
 
